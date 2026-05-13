@@ -157,13 +157,17 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Regions */}
-        <section className="py-16 md:py-24 px-4 bg-muted/30">
-          <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Explore by Region</h2>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Discover destinations organized by India&apos;s diverse regions
+        {/* Regions Premium UI */}
+        <section className="py-24 px-4 bg-background relative overflow-hidden">
+          {/* Subtle background glow */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-primary/5 blur-[100px] pointer-events-none"></div>
+          
+          <div className="container mx-auto max-w-6xl relative z-10">
+            <div className="text-center mb-16">
+              <span className="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">Diverse Landscapes</span>
+              <h2 className="text-4xl md:text-6xl font-extrabold text-foreground mb-6 tracking-tight">Explore by Region</h2>
+              <p className="text-muted-foreground text-xl max-w-2xl mx-auto font-medium">
+                Discover curated destinations organized by India&apos;s incredibly diverse geographical regions.
               </p>
             </div>
 
@@ -172,16 +176,36 @@ export default function HomePage() {
                 <button
                   key={index}
                   onClick={() => {
-                    // Navigate to explore page with region filter
                     window.location.href = `/explore?region=${region.name}`;
                   }}
-                  className={`relative h-40 rounded-xl overflow-hidden group cursor-pointer`}
+                  className="relative h-48 rounded-3xl overflow-hidden group cursor-pointer border border-border/50 bg-card hover:border-primary/30 transition-colors shadow-sm hover:shadow-xl text-left"
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${region.color} opacity-90 group-hover:opacity-100 transition-opacity duration-300`}></div>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
-                    <span className="text-5xl mb-3">{region.icon}</span>
-                    <h3 className="text-2xl font-bold text-center">{region.name}</h3>
-                    <p className="text-sm mt-2 text-white/80">{region.destinations} destinations</p>
+                  {/* Vibrant Gradient Background on Hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${region.color} opacity-5 group-hover:opacity-10 transition-opacity duration-500`}></div>
+                  
+                  {/* Large faded emoji background watermark */}
+                  <div className="absolute -right-6 -bottom-6 text-9xl opacity-[0.03] group-hover:opacity-[0.08] group-hover:scale-110 group-hover:-rotate-12 transition-all duration-700 blur-sm pointer-events-none">
+                    {region.icon}
+                  </div>
+
+                  <div className="absolute inset-0 p-6 flex flex-col justify-between">
+                    <div className="flex justify-between items-start">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-background to-muted border border-border/50 flex items-center justify-center text-3xl shadow-sm group-hover:scale-110 transition-transform duration-500">
+                        {region.icon}
+                      </div>
+                      <div className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="text-2xl font-black text-foreground group-hover:text-primary transition-colors tracking-tight">{region.name}</h3>
+                      <div className="flex items-center gap-2 mt-2">
+                        <span className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-semibold text-muted-foreground ring-1 ring-inset ring-border/50 group-hover:bg-primary/10 group-hover:text-primary group-hover:ring-primary/20 transition-colors">
+                          {region.destinations} destinations
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </button>
               ))}
