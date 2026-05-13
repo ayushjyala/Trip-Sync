@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Header } from '@/components/header';
 import { INDIA_DESTINATIONS } from '@/lib/india-destinations';
+import { getFallbackImageForDestination } from '@/lib/image-utils';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -232,7 +233,7 @@ export default function ExplorePage() {
                             fill
                             className="object-cover hover:scale-110 transition-transform duration-300"
                             onError={(e) => {
-                              e.currentTarget.src = 'https://images.unsplash.com/photo-1524661135-423995f22d0b?w=500&h=300&fit=crop';
+                              e.currentTarget.src = getFallbackImageForDestination(destination);
                             }}
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>

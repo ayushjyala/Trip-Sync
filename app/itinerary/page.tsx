@@ -159,7 +159,7 @@ export default function ItineraryPage() {
   };
 
   const downloadItinerary = () => {
-    let content = `TripSync Itinerary - ${tripName}\n`;
+    let content = `Trip-Sync Itinerary - ${tripName}\n`;
     content += `Generated: ${new Date().toLocaleDateString()}\n`;
     content += `Total Days: ${totalTripDays}\n`;
     content += `Total Cost: ₹${totalTripCost.toLocaleString()}\n`;

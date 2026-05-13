@@ -81,7 +81,7 @@ export default function BudgetPage() {
 
   const downloadBudget = () => {
     const content = `
-TripSync Budget Breakdown
+Trip-Sync Budget Breakdown
 =========================
 
 Total Budget: ₹${totalBudget.toLocaleString()}
@@ -98,7 +98,7 @@ ${budgetItems
   .map(item => `${item.category}: ₹${item.amount.toLocaleString()}`)
   .join('\n')}
 
-Plan your trip at TripSync!
+Plan your trip at Trip-Sync!
     `;
 
     const element = document.createElement('a');

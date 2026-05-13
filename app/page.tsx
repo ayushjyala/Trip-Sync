@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Header } from '@/components/header';
 import { DestinationCard } from '@/components/destination-card';
 import { INDIA_DESTINATIONS } from '@/lib/india-destinations';
+import { getFallbackImageForDestination } from '@/lib/image-utils';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, MapPin, DollarSign, Users, Compass, Clock, Star, Calendar } from 'lucide-react';
@@ -109,7 +110,7 @@ export default function HomePage() {
                         fill
                         className="object-cover hover:scale-110 transition-transform duration-300"
                         onError={(e) => {
-                          e.currentTarget.src = 'https://images.unsplash.com/photo-1524661135-423995f22d0b?w=400&h=300&fit=crop';
+                          e.currentTarget.src = getFallbackImageForDestination(destination);
                         }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -189,7 +190,7 @@ export default function HomePage() {
         <section className="py-16 md:py-24 px-4 bg-background">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Why Choose TripSync?</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Why Choose Trip-Sync?</h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
                 Everything you need for an amazing travel experience
               </p>
@@ -261,7 +262,7 @@ export default function HomePage() {
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h4 className="font-bold text-lg mb-4">TripSync</h4>
+              <h4 className="font-bold text-lg mb-4">Trip-Sync</h4>
               <p className="text-sm text-muted-foreground">Your trusted companion for exploring India</p>
             </div>
             <div>
@@ -293,7 +294,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; 2026 TripSync. All rights reserved. | Your journey begins here.</p>
+            <p>&copy; 2026 Trip-Sync. All rights reserved. | Your journey begins here.</p>
           </div>
         </div>
       </footer>

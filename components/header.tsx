@@ -20,7 +20,7 @@ export function Header() {
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary">
             <MapPin className="w-6 h-6" />
-            <span>TripSync</span>
+            <span>Trip-Sync</span>
           </Link>
         </div>
       </header>
@@ -33,7 +33,7 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary">
           <MapPin className="w-6 h-6" />
-          <span>TripSync</span>
+          <span>Trip-Sync</span>
         </Link>
 
         {/* Navigation */}

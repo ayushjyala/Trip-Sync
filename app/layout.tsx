@@ -8,7 +8,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'TripSync - Plan Your Perfect Indian Adventure',
+  title: 'Trip-Sync - Plan Your Perfect Indian Adventure',
   description: 'Discover and plan unforgettable trips across India with personalized itineraries, budget calculators, and local insights.',
   generator: 'v0.app',
   icons: {
