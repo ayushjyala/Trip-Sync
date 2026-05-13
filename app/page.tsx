@@ -26,115 +26,118 @@ export default function HomePage() {
       <Header />
 
       <main className="flex-1">
-        {/* Hero Section with Background */}
-        <section 
-          className="relative py-20 md:py-32 px-4 overflow-hidden"
-          style={{
-            backgroundImage: 'url(/images/hero-background.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-overlay"></div>
+        {/* Cinematic Hero Section */}
+        <section className="relative min-h-[90vh] flex items-center pt-20 px-4 overflow-hidden">
+          {/* Stunning Background Image */}
+          <Image
+            src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80&w=2000"
+            alt="Beautiful Indian Landscape"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-background"></div>
           
-          <div className="container mx-auto max-w-4xl relative z-10">
-            <div className="text-center space-y-8">
-              <div className="space-y-3">
-                <div className="inline-block">
-                  <span className="bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-medium">
-                    Explore India Like Never Before
-                  </span>
-                </div>
+          <div className="container mx-auto max-w-5xl relative z-10 flex flex-col items-center justify-center h-full pb-10">
+            <div className="text-center space-y-8 p-8 md:p-12 rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl animate-fade-in-up">
+              <div className="inline-block mb-4 animate-bounce-slow">
+                <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-6 py-2 rounded-full text-sm font-extrabold tracking-wider uppercase shadow-lg shadow-yellow-500/20">
+                  Premium Travel Experience
+                </span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white text-balance leading-tight">
-                Plan Your <span className="text-yellow-300">Perfect</span> Indian Adventure
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white text-balance leading-tight tracking-tight drop-shadow-lg">
+                Discover <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-600">Incredible</span> India
               </h1>
               
-              <p className="text-lg md:text-xl text-white/90 text-balance max-w-2xl mx-auto leading-relaxed">
-                Discover 100+ destinations across all Indian states, get real-time budget estimates, create personalized itineraries, and connect with a vibrant community of travelers.
+              <p className="text-xl md:text-2xl text-white/90 text-balance max-w-3xl mx-auto font-medium leading-relaxed drop-shadow">
+                Plan the perfect adventure with real-time budget estimates, AI-curated itineraries, and a vibrant community.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-                <Button asChild size="lg" className="bg-yellow-400 text-gray-900 hover:bg-yellow-300 font-semibold text-base">
+              <div className="flex flex-col sm:flex-row gap-5 justify-center pt-8">
+                <Button asChild size="lg" className="h-14 px-8 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg rounded-xl shadow-xl hover:-translate-y-1 transition-all duration-300">
                   <Link href="/explore">
-                    <Compass className="mr-2 h-5 w-5" />
-                    Explore Destinations
+                    <Compass className="mr-2 h-6 w-6" />
+                    Start Exploring
                   </Link>
                 </Button>
-                <Button asChild size="lg" className="bg-white/20 text-white hover:bg-white/30 border border-white/40 backdrop-blur-sm font-semibold text-base">
+                <Button asChild size="lg" className="h-14 px-8 bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-md font-bold text-lg rounded-xl shadow-xl hover:-translate-y-1 transition-all duration-300">
                   <Link href="/itinerary">
-                    <Calendar className="mr-2 h-5 w-5" />
+                    <Calendar className="mr-2 h-6 w-6" />
                     Plan Your Trip
                   </Link>
                 </Button>
               </div>
 
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 pt-12">
-                <div className="text-white">
-                  <div className="text-3xl md:text-4xl font-bold">100+</div>
-                  <div className="text-sm text-white/80">Destinations</div>
+              {/* Floating Stats */}
+              <div className="grid grid-cols-3 gap-8 pt-12 mt-8 border-t border-white/10">
+                <div className="text-white group">
+                  <div className="text-4xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70 group-hover:scale-110 transition-transform">100+</div>
+                  <div className="text-sm uppercase tracking-widest font-semibold text-yellow-400 mt-2">Destinations</div>
                 </div>
-                <div className="text-white">
-                  <div className="text-3xl md:text-4xl font-bold">28</div>
-                  <div className="text-sm text-white/80">Indian States</div>
+                <div className="text-white group border-x border-white/10">
+                  <div className="text-4xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70 group-hover:scale-110 transition-transform">28</div>
+                  <div className="text-sm uppercase tracking-widest font-semibold text-yellow-400 mt-2">States</div>
                 </div>
-                <div className="text-white">
-                  <div className="text-3xl md:text-4xl font-bold">∞</div>
-                  <div className="text-sm text-white/80">Experiences</div>
+                <div className="text-white group">
+                  <div className="text-4xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70 group-hover:scale-110 transition-transform">∞</div>
+                  <div className="text-sm uppercase tracking-widest font-semibold text-yellow-400 mt-2">Memories</div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Featured Destinations */}
-        <section className="py-16 md:py-24 px-4 bg-background">
+        {/* Featured Destinations Premium Grid */}
+        <section className="py-24 px-4 bg-background relative z-20">
           <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Featured Destinations</h2>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Explore some of India&apos;s most iconic and beautiful destinations
+            <div className="text-center mb-16">
+              <span className="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">Curated For You</span>
+              <h2 className="text-4xl md:text-6xl font-extrabold text-foreground mb-6 tracking-tight">Featured Destinations</h2>
+              <p className="text-muted-foreground text-xl max-w-2xl mx-auto font-medium">
+                Explore India&apos;s most iconic, breathtaking locations handpicked by our travel experts.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {featuredDestinations.map((destination) => (
                 <Link key={destination.id} href={`/destination/${destination.id}`}>
-                  <Card className="overflow-hidden hover-lift transition-all duration-300 h-full hover:shadow-xl border-0">
-                    <div className="relative h-48 bg-muted overflow-hidden">
+                  <Card className="overflow-hidden group h-full rounded-3xl border-0 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 bg-card">
+                    <div className="relative h-64 bg-muted overflow-hidden">
                       <Image
                         src={destination.image}
                         alt={destination.name}
                         fill
-                        className="object-cover hover:scale-110 transition-transform duration-300"
+                        className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                         onError={(e) => {
                           e.currentTarget.src = getFallbackImageForDestination(destination);
                         }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                      <div className="absolute top-3 right-3 bg-yellow-400 text-gray-900 rounded-full p-2">
-                        <Star className="h-4 w-4 fill-current" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      
+                      <div className="absolute top-4 right-4 bg-yellow-400 text-gray-900 rounded-full p-2.5 shadow-lg transform group-hover:rotate-12 transition-transform duration-300">
+                        <Star className="h-5 w-5 fill-current" />
+                      </div>
+                      
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-yellow-400 transition-colors">{destination.name}</h3>
+                        <div className="flex items-center gap-1.5 text-white/90 font-medium">
+                          <MapPin className="h-4 w-4 text-yellow-400" />
+                          {destination.state}
+                        </div>
                       </div>
                     </div>
-                    <CardHeader className="pb-3">
-                      <CardTitle className="text-xl text-foreground">{destination.name}</CardTitle>
-                      <CardDescription className="text-sm flex items-center gap-1">
-                        <MapPin className="h-3 w-3" />
-                        {destination.state}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-3">
-                      <p className="text-sm text-muted-foreground line-clamp-2">{destination.description}</p>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-1">
-                          <DollarSign className="h-4 w-4 text-primary" />
-                          <span className="text-sm font-semibold">₹{destination.costPerDay.budget.total}/day</span>
+                    <CardContent className="p-6 space-y-4">
+                      <p className="text-muted-foreground line-clamp-2 text-base leading-relaxed">{destination.description}</p>
+                      
+                      <div className="flex items-center justify-between pt-4 border-t border-border/50">
+                        <div className="flex items-center gap-1.5 bg-primary/10 px-3 py-1.5 rounded-lg text-primary">
+                          <DollarSign className="h-4 w-4" />
+                          <span className="text-sm font-bold">₹{destination.costPerDay.budget.total}/day</span>
                         </div>
-                        <div className="flex items-center gap-1">
-                          <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-                          <span className="text-sm font-medium">{destination.rating}</span>
+                        <div className="flex items-center gap-1.5 bg-yellow-400/10 px-3 py-1.5 rounded-lg text-yellow-600 dark:text-yellow-400">
+                          <Star className="h-4 w-4 fill-current" />
+                          <span className="text-sm font-bold">{destination.rating}</span>
                         </div>
                       </div>
                     </CardContent>
@@ -143,11 +146,11 @@ export default function HomePage() {
               ))}
             </div>
 
-            <div className="flex justify-center mt-10">
-              <Button asChild size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary/5">
+            <div className="flex justify-center mt-16">
+              <Button asChild size="lg" variant="outline" className="h-14 px-8 border-2 border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground font-bold text-lg rounded-xl transition-all duration-300 group shadow-sm hover:shadow-xl">
                 <Link href="/explore">
-                  View All Destinations
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  View All 100+ Destinations
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
             </div>

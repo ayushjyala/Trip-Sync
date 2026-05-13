@@ -96,102 +96,134 @@ export default function ExplorePage() {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Filters Sidebar */}
             <div className="lg:col-span-1">
-              <div className="sticky top-4 space-y-6 bg-card p-6 rounded-lg border">
-                <div>
-                  <h3 className="font-bold text-lg mb-4 text-foreground">Filters</h3>
-                </div>
-
-                {/* Search */}
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Search</label>
-                  <div className="relative">
-                    <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      placeholder="Search destinations..."
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                      className="pl-9 bg-background"
-                    />
+              <div className="sticky top-24 space-y-8 bg-card/50 backdrop-blur-xl p-8 rounded-3xl border border-border/50 shadow-lg">
+                <div className="flex items-center gap-3 border-b border-border/50 pb-4">
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <Search className="w-5 h-5 text-primary" />
                   </div>
+                  <h3 className="font-extrabold text-xl text-foreground">Discover</h3>
                 </div>
 
-                {/* State Filter */}
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">State</label>
-                  <select
-                    value={selectedState}
-                    onChange={(e) => setSelectedState(e.target.value)}
-                    className="w-full px-3 py-2 rounded-md border border-input bg-background text-sm"
-                  >
-                    <option value="">All States</option>
-                    {STATES.map(state => (
-                      <option key={state} value={state}>{state}</option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Budget Filter */}
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Budget</label>
-                  <select
-                    value={selectedCostRange}
-                    onChange={(e) => setSelectedCostRange(e.target.value)}
-                    className="w-full px-3 py-2 rounded-md border border-input bg-background text-sm"
-                  >
-                    <option value="">All Budgets</option>
-                    {COST_RANGES.map(range => (
-                      <option key={range.label} value={range.label}>{range.label}</option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Rating Filter */}
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Minimum Rating</label>
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="range"
-                      min="0"
-                      max="5"
-                      step="0.5"
-                      value={minRating}
-                      onChange={(e) => setMinRating(parseFloat(e.target.value))}
-                      className="flex-1"
-                    />
-                    <span className="text-sm font-medium min-w-8">{minRating.toFixed(1)}</span>
+                <div className="space-y-6">
+                  {/* Search */}
+                  <div className="space-y-3">
+                    <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Search Location</label>
+                    <div className="relative group">
+                      <Search className="absolute left-4 top-3.5 h-5 w-5 text-muted-foreground group-focus-within:text-primary transition-colors" />
+                      <Input
+                        placeholder="Where to?"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="pl-12 h-12 bg-background/50 border-border/50 hover:border-primary/50 focus:border-primary rounded-xl transition-all shadow-sm"
+                      />
+                    </div>
                   </div>
-                </div>
 
-                {/* Sort */}
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Sort By</label>
-                  <select
-                    value={sortBy}
-                    onChange={(e) => setSortBy(e.target.value)}
-                    className="w-full px-3 py-2 rounded-md border border-input bg-background text-sm"
-                  >
-                    <option value="rating">Highest Rated</option>
-                    <option value="reviews">Most Reviews</option>
-                    <option value="price-low">Price: Low to High</option>
-                    <option value="price-high">Price: High to Low</option>
-                  </select>
+                  {/* State Filter */}
+                  <div className="space-y-3">
+                    <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Region / State</label>
+                    <div className="relative">
+                      <select
+                        value={selectedState}
+                        onChange={(e) => setSelectedState(e.target.value)}
+                        className="w-full h-12 pl-4 pr-10 appearance-none rounded-xl border border-border/50 bg-background/50 hover:border-primary/50 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-sm text-foreground cursor-pointer font-medium"
+                      >
+                        <option value="">All States</option>
+                        {STATES.map(state => (
+                          <option key={state} value={state}>{state}</option>
+                        ))}
+                      </select>
+                      <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-muted-foreground">
+                        <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" fillRule="evenodd"></path></svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Budget Filter */}
+                  <div className="space-y-3">
+                    <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Daily Budget</label>
+                    <div className="relative">
+                      <select
+                        value={selectedCostRange}
+                        onChange={(e) => setSelectedCostRange(e.target.value)}
+                        className="w-full h-12 pl-4 pr-10 appearance-none rounded-xl border border-border/50 bg-background/50 hover:border-primary/50 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-sm text-foreground cursor-pointer font-medium"
+                      >
+                        <option value="">All Budgets</option>
+                        {COST_RANGES.map(range => (
+                          <option key={range.label} value={range.label}>{range.label}</option>
+                        ))}
+                      </select>
+                      <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-muted-foreground">
+                        <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" fillRule="evenodd"></path></svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Rating Filter */}
+                  <div className="space-y-3">
+                    <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex justify-between">
+                      <span>Minimum Rating</span>
+                      <span className="text-primary">{minRating > 0 ? `${minRating.toFixed(1)}+ Stars` : 'Any'}</span>
+                    </label>
+                    <div className="pt-2">
+                      <input
+                        type="range"
+                        min="0"
+                        max="5"
+                        step="0.5"
+                        value={minRating}
+                        onChange={(e) => setMinRating(parseFloat(e.target.value))}
+                        className="w-full h-2 bg-muted rounded-lg appearance-none cursor-pointer accent-primary hover:accent-primary/80 transition-all"
+                      />
+                      <div className="flex justify-between text-xs text-muted-foreground mt-2 font-medium">
+                        <span>Any</span>
+                        <span>5.0</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Sort */}
+                  <div className="space-y-3">
+                    <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Sort By</label>
+                    <div className="relative">
+                      <select
+                        value={sortBy}
+                        onChange={(e) => setSortBy(e.target.value)}
+                        className="w-full h-12 pl-4 pr-10 appearance-none rounded-xl border border-border/50 bg-background/50 hover:border-primary/50 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-sm text-foreground cursor-pointer font-medium"
+                      >
+                        <option value="rating">Highest Rated</option>
+                        <option value="reviews">Most Reviews</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                      </select>
+                      <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-muted-foreground">
+                        <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" fillRule="evenodd"></path></svg>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Clear Filters */}
-                {(searchTerm || selectedState || selectedCostRange || minRating > 0) && (
-                  <Button
-                    onClick={() => {
-                      setSearchTerm('');
-                      setSelectedState('');
-                      setSelectedCostRange('');
-                      setMinRating(0);
-                    }}
-                    variant="outline"
-                    className="w-full"
-                  >
-                    Clear Filters
-                  </Button>
-                )}
+                <div className="pt-4">
+                  {(searchTerm || selectedState || selectedCostRange || minRating > 0) ? (
+                    <Button
+                      onClick={() => {
+                        setSearchTerm('');
+                        setSelectedState('');
+                        setSelectedCostRange('');
+                        setMinRating(0);
+                      }}
+                      variant="outline"
+                      className="w-full h-12 rounded-xl border-destructive/50 text-destructive hover:bg-destructive hover:text-destructive-foreground transition-all font-bold"
+                    >
+                      Clear All Filters
+                    </Button>
+                  ) : (
+                    <div className="h-12 w-full flex items-center justify-center text-sm font-medium text-muted-foreground bg-muted/50 rounded-xl border border-dashed border-border">
+                      Adjust filters to refine
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
 

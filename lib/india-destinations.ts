@@ -2381,10 +2381,10 @@ export const INDIA_DESTINATIONS: City[] = [
       "Milk products",
     ],
     experiences: [
-      "Yoga classes",
-      "Meditation",
-      "River rafting",
-      "Ashram stays",
+      "River Rafting",
+      "Bungee Jumping",
+      "Yoga Ashrams",
+      "Ganga Aarti"
     ],
     costPerDay: {
       budget: createCostBreakdown(400, 300, 150, 200),
@@ -2415,12 +2415,7 @@ export const INDIA_DESTINATIONS: City[] = [
       "Local sweets",
       "Tea",
     ],
-    experiences: [
-      "Ghat rituals",
-      "Aarti ceremonies",
-      "Temple visits",
-      "Spiritual immersion",
-    ],
+    experiences: ["Ganga Aarti at Har Ki Pauri", "Temple Visits", "Holy Dip in Ganges", "Cable Car Ride"],
     costPerDay: {
       budget: createCostBreakdown(350, 280, 120, 170),
       mid: createCostBreakdown(700, 450, 220, 350),
